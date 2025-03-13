@@ -33,14 +33,16 @@ def decrypto_vigenere(word,key,table):
     
 
 def app_process():
+    word=''
     table=create_vigenere_table(alpha)
     while True:
         print("""Правила ввода:
-          1) Вводить только слова на русском языке
-          2) Вводить только целые числа для ключа от 0 до 31
-  Хотите посмотреть таблицу Виженера? (да/нет)""")
+        1) Вводить только слова на русском языке
+        2) Вводить только целые числа для ключа от 0 до 31
+        3) Вводить только слова без пробелов
+    Посмотреть таблицу Виженера? введите 1 иначе введите любой клавищу""")
         answer=input()
-        if answer=="да":
+        if answer=="1":
             table=create_vigenere_table(alpha)
             print_vigenere_table(table)
         print("Введите слово для шифрования:")
@@ -51,7 +53,7 @@ def app_process():
             print("Неверный ключ")
             break
         print(f"Зашифрованное слово:{crypto_vigenere(word,key,table)}")
-        print(f"Расшифрованное слово:{decrypto_vigenere(crypto_vigenere(word,key,table),key,table)}")
+        print(f"Расшифрованное слово:{decrypto_vigenere(word,key,table)}")
         print("Хотите продолжить?")
         answer=input()
         if answer=="нет":
