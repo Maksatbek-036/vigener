@@ -20,14 +20,14 @@ def crypto_vigenere(word,key,table):
     crypto_word=""
     for i in range(len(word)):
         for j in range(len(alpha)):
-            if word[i]==alpha[j]:
+            if word[i].lower()==alpha[j].lower():
                 crypto_word+=table[j][key]
     return crypto_word
 def decrypto_vigenere(word,key,table):
     crypto_word=""
     for i in range(len(word)):
         for j in range(len(alpha)):
-            if word[i]==table[j][key]:
+            if word[i].lower()==table[j][key].lower():
                 crypto_word+=alpha[j]
     return crypto_word
     
